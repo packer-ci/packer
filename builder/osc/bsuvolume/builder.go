@@ -56,6 +56,7 @@ func (b *Builder) Prepare(raws ...interface{}) ([]string, []string, error) {
 		SourceOMI:   `{{ .SourceOMI }} `,
 	}
 	err := config.Decode(&b.config, &config.DecodeOpts{
+		PluginType:         BuilderId,
 		Interpolate:        true,
 		InterpolateContext: &b.config.ctx,
 	}, raws...)
